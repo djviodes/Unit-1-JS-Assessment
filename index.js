@@ -5,6 +5,8 @@
 // 👇 COMPLETE YOUR WORK BELOW 👇
 */
 
+// const { starships } = require("./data/fixtures-bundle");
+
 /**
  * ### Challenge `getName`
  * Example ✅
@@ -14,6 +16,7 @@
  *
  * Sample data expected output: `Luke Skywalker`
 */
+
 function getName(character) {
   // ⭐️ Example Solution Provided For First Function ⭐️
   return character.name
@@ -28,10 +31,12 @@ function getName(character) {
  *
  * Sample data expected output: 5
  */
-function getFilmCount(character) {
-  // TODO: Add your code inside the functions (others below).
 
+function getFilmCount(character) {
+    return character["films"].length
 }
+
+// console.log(getFilmCount(obiWanKenobi));
 
 /**
  * ### Challenge `getSecondStarshipName`
@@ -42,8 +47,14 @@ function getFilmCount(character) {
  * If length is 0. Return 'none'
 */
 function getSecondStarshipName(character) {
-  // TODO: Add your code here.
+  if(character["starships"].length > 1){
+    return character.starships[1].name;
+  } else {
+    return 'none';
+  }
 }
+
+// console.log(getSecondStarshipName(obiWanKenobi));
 
 /**
  * ### Challenge `getSummary`
@@ -55,8 +66,10 @@ function getSecondStarshipName(character) {
  *    Result: `Luke Skywalker, 172cm, 77kg. Featured in 5 films.`
  */
 function getSummary(character) {
-  // TODO: Add your code here.
+  return `${character.name}, ${character.height}cm, ${character.mass}kg. Featured in ${character["films"].length} films.`
 }
+
+// console.log(getSummary(obiWanKenobi));
 
 /**
  * ### Challenge `getVehiclesCostInCreditsSumTotal`
@@ -67,8 +80,20 @@ function getSummary(character) {
  * Sample data expected output: 8000
 */
 function getVehiclesCostInCreditsSumTotal(character) {
-  // TODO: Add your code here.
+  for(let i = 0; i < character.vehicles.length; i++){
+    if(character.vehicles.length > 1){
+      return character.vehicles[i].cost_in_credits + character.vehicles[i + 1].cost_in_credits;
+    } else if(character.vehicles.length === 1 && character.vehicles.cost_in_credits !== null) {
+      return character.vehicles[i].cost_in_credits;
+    } else {
+      return 0;
+    } 
+  }
 }
+
+console.log(getVehiclesCostInCreditsSumTotal(obiWanKenobi));
+
+// console.log(getVehiclesCostInCreditsSumTotal(lukeSkywalker));
 
 /**
  * ### Challenge `getStarshipPassengerAndCrewSumTotal`
@@ -81,7 +106,7 @@ function getVehiclesCostInCreditsSumTotal(character) {
  * Sample data expected output: 27
 */
 function getStarshipPassengerAndCrewSumTotal(character) {
-  // TODO: Add your code here.
+
 }
 
 /**
