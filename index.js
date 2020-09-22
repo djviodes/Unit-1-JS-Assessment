@@ -91,9 +91,7 @@ function getVehiclesCostInCreditsSumTotal(character) {
   }
 }
 
-console.log(getVehiclesCostInCreditsSumTotal(obiWanKenobi));
-
-// console.log(getVehiclesCostInCreditsSumTotal(lukeSkywalker));
+// console.log(getVehiclesCostInCreditsSumTotal(obiWanKenobi));
 
 /**
  * ### Challenge `getStarshipPassengerAndCrewSumTotal`
@@ -106,7 +104,15 @@ console.log(getVehiclesCostInCreditsSumTotal(obiWanKenobi));
  * Sample data expected output: 27
 */
 function getStarshipPassengerAndCrewSumTotal(character) {
-
+  for(let i = 0; i < character.starships.length; i++){
+    if(character.starships.length === 2){
+      return character.starships[i].crew + character.starships[i].passengers + character.starships[i + 1].crew + character.starships[i + 1].passengers;
+    } else if (character.starships.length === 5){
+      return character.starships[i].crew + character.starships[i].passengers + character.starships[i + 1].crew + character.starships[i + 1].passengers + character.starships[i + 2].crew + character.starships[i + 2].passengers + character.starships[i + 3].crew + character.starships[i + 3].passengers + character.starships[i + 4].crew + character.starships[i + 4].passengers;
+    } else {
+      return 0;
+    }
+  }
 }
 
 /**
@@ -123,7 +129,11 @@ function getStarshipPassengerAndCrewSumTotal(character) {
  * Given film #7, expected error: `There are only 3 Star Wars movies. Flan fiction excluded.`
 */
 function getNthFilm(character, filmNumber) {
-  // TODO: Add your code here.
+  if(filmNumber <= 3){
+    return character.films[filmNumber - 1];
+  } else {
+    return 'There are only 3 Star Wars movies. Fan fiction excluded.'
+  }
 }
 
 /**
