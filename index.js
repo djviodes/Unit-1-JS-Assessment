@@ -83,7 +83,7 @@ function getVehiclesCostInCreditsSumTotal(character) {
   for(let i = 0; i < character.vehicles.length; i++){
     if(character.vehicles.length > 1){
       return character.vehicles[i].cost_in_credits + character.vehicles[i + 1].cost_in_credits;
-    } else if(character.vehicles.length === 1 && character.vehicles.cost_in_credits !== null) {
+    } else if(character.vehicles.length === 1 && character.vehicles[i].cost_in_credits !== null) {
       return character.vehicles[i].cost_in_credits;
     } else {
       return 0;
