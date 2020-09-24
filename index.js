@@ -80,15 +80,11 @@ function getSummary(character) {
  * Sample data expected output: 8000
 */
 function getVehiclesCostInCreditsSumTotal(character) {
+  let sumTotal = 0;
   for(let i = 0; i < character.vehicles.length; i++){
-    if(character.vehicles.length > 1){
-      return character.vehicles[i].cost_in_credits + character.vehicles[i + 1].cost_in_credits;
-    } else if(character.vehicles.length === 1 && character.vehicles[i].cost_in_credits !== null) {
-      return character.vehicles[i].cost_in_credits;
-    } else {
-      return 0;
-    } 
+    sumTotal = sumTotal + character.vehicles[i].cost_in_credits
   }
+  return sumTotal;
 }
 
 // console.log(getVehiclesCostInCreditsSumTotal(obiWanKenobi));
@@ -104,15 +100,11 @@ function getVehiclesCostInCreditsSumTotal(character) {
  * Sample data expected output: 27
 */
 function getStarshipPassengerAndCrewSumTotal(character) {
+  let totalSpots = 0
   for(let i = 0; i < character.starships.length; i++){
-    if(character.starships.length === 2){
-      return character.starships[i].crew + character.starships[i].passengers + character.starships[i + 1].crew + character.starships[i + 1].passengers;
-    } else if (character.starships.length === 5){
-      return character.starships[i].crew + character.starships[i].passengers + character.starships[i + 1].crew + character.starships[i + 1].passengers + character.starships[i + 2].crew + character.starships[i + 2].passengers + character.starships[i + 3].crew + character.starships[i + 3].passengers + character.starships[i + 4].crew + character.starships[i + 4].passengers;
-    } else {
-      return 0;
-    }
+    totalSpots = totalSpots + (character.starships[i].crew + character.starships[i].passengers)
   }
+  return totalSpots;
 }
 
 /**
